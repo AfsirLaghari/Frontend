@@ -1,0 +1,160 @@
+
+
+
+<div class="card border" style="background-color: #354735; color: #e7e5e5; padding: 20px; margin-left: 30%; margin-top: 6%; margin-right: 30%;">
+<h1 style="text-align: center; color: #e4d509;" ><strong>ABOUT</strong></h1>
+<P>This plateform provides you with all information 
+  about livestock and poultry management. Here, you can see cattle and poultry posts 
+  created by sellers. You can also create your own posts, if you want. 
+  Not only this, we also provide you other relevant information on feeds, breeds,
+  veterans, cattle markets, diseases and veterinary medicines. Scroll a bit down to
+  see posts or create one.</P>
+  <div class="home1">
+  <img src="../../assets/l.png">
+  </div>
+
+<br>
+<br></div>
+<br><br>
+
+
+
+
+
+<!-- ------------------------------------------------------------------ -->
+
+<div style="white-space:nowrap;">
+  <div style="margin-left: 30%;  margin-bottom: 1%; display:inline-block">
+    <button class="button buttonrow1" routerLink="/market"><strong>MARKETS</strong></button>
+
+  </div>
+  <div style="margin-left: 15%;  margin-bottom: 1%; display:inline-block">
+    <button class="button buttonrow1" routerLink="/feed"><strong>FEED</strong></button>
+  </div>
+  </div>
+<!-- ------------------------------- -->
+  <br>
+  <br>
+  
+  
+  <div style="white-space:nowrap;">
+  <div style="margin-left: 30%;  margin-bottom: 15%; margin-bottom: 1%; display:inline-block">
+    <button class="button buttonrow1" routerLink="/medicine"><strong>MEDICINE</strong></button>
+  </div>
+
+  <div style="margin-left: 14.5%;  margin-bottom: 15%; margin-bottom: 1%; display:inline-block">
+    <button class="button buttonrow1" routerLink="/disease"><strong>DISEASES</strong></button>
+  </div>
+
+  </div>
+  <!-- ------------------------------- -->
+  <br>
+  <br>
+  
+  <div style="white-space:nowrap;">
+  <div style="margin-left: 30%; margin-bottom: 15%; margin-bottom: 1%; display:inline-block">
+    <button class="button buttonrow1" routerLink="/vet"><strong>VETERINARIAN </strong></button>
+  </div>
+  <div style="margin-left: 15%;  margin-bottom: 15%; margin-bottom: 1%; display:inline-block">
+    <button class="button buttonrow1" routerLink="/post"><strong>SELL</strong></button>
+  </div>
+  </div>
+  <hr>
+
+
+<!-- ----------------------------------------------------------------------------- -->
+
+        <div class="card" *ngFor="let myData of dataArr" 
+style="margin-left: 30%; margin-top: 4%;">
+<h3 style="text-align: center; color: #929191; background-color: #dcdbdb;"><strong>
+  This post was created on </strong> 
+  <strong style="color: #808000;">{{myData.date | date}}</strong></h3>
+    <img [src]="'http://localhost:8080/good/goodsImage/'+myData.goodImage" 
+        style="width: 100%; height: 100%;">
+    <div *ngIf="myData.category !== 'chicken'">
+    <table class="container" style="background-color: #dcdbdb; 
+    padding-left: 3%; padding-top: 2%; padding-right: 2%;">
+      <tr>
+        <th>CATEGORY</th>
+        <th>GENDER</th>
+        <th>WEIGHT</th>
+        <th>CITY</th>
+        <th>MILK</th>
+    </tr>
+    <tr>
+        <td><strong style="color: #808000;">{{myData.category}}</strong></td>
+
+        <td><strong style="color: #808000;">{{myData.gender}}</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.weight}} KGs</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.city}}</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.milkInLiters}} LITERS</strong></td>
+    </tr>
+    <tr>
+        <th>PREGNANT</th>
+        <th>PRICE</th>
+        <th>SELLER'S NAME</th>
+        <th>SELLER'S CONTACT</th>
+    </tr>
+      <tr>
+        
+        <td><strong style="color: #808000;">{{myData.pregnant}}</strong></td>
+        
+        <td><strong style="color: #808000;">Rs.{{myData.price}}</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.sellerName}}</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.sellerPhone}}</strong></td>
+        
+      </tr>
+    </table>
+  </div>
+<!-- ----------------------------------------------------------------------------- -->
+
+<div *ngIf="myData.category == 'chicken'">
+
+    <table class="container" style="background-color: #dcdbdb; 
+    padding-left: 3%; padding-top: 2%; padding-right: 2%;">
+      <tr>
+        <th>CATEGORY</th>
+        <th>Gender</th>
+        <th>WEIGHT</th>
+        <th>CITY</th>
+        
+    </tr>
+    <tr>
+        <td><strong style="color: #808000;">{{myData.category}}</strong></td>
+
+        <td><strong style="color: #808000;">{{myData.gender}}</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.weight}} KGs</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.city}}</strong></td>
+        
+    </tr>
+    <tr>
+        
+        <th>PRICE</th>
+        <th>SELLER'S NAME</th>
+        <th>SELLER'S CONTACT</th>
+    </tr>
+      <tr>
+        
+        <td><strong style="color: #808000;">{{myData.price}} RUPEES</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.sellerName}}</strong></td>
+        
+        <td><strong style="color: #808000;">{{myData.sellerPhone}}</strong></td>
+        
+      </tr>
+    </table>
+  </div>
+  </div>
+
+  
+
+
+<!-- //------------------------------------------------------------------------------- -->
+<!-- <a routerLink="post">Sell</a> -->

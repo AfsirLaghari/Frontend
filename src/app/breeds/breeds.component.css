@@ -1,0 +1,66 @@
+.button {
+    box-shadow: 0 8px 16px 0 rgba(235, 231, 39, 0.74), 0 6px 20px 0 rgba(56, 56, 50, 0.74);
+    border-radius: 20px 0px 20px 0px;
+    width: 190px;
+    height: 90px;
+    
+    
+  }
+
+  .button:hover {
+    color:#e4d721 ;
+  }
+  .buttonrow1 {
+    background-color:#354735; /* Green */
+    border: none;
+    /* border-radius: 10px; */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .buttonrow2 {
+    background-color: #354735; /* Green */
+    border: none;
+    /* border-radius: 10px; */
+    color: white;
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .buttonrow3 {
+    background-color: #354735; /* Green */
+    border: none;
+    /* border-radius: 10px; */
+    color: white;
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .round{
+
+    border: rgb(255, 255, 255) solid;
+    border-radius: 20px;
+
+  }

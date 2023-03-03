@@ -1,0 +1,16 @@
+.img {
+
+    border: 5px solid;
+    border-color: #acb806;
+    border-radius:10px 20px 10px 20px;
+
+}
+
+.font {
+
+    border: 5px solid;
+    border-color: #1f411f;
+    margin-right: 50%;
+    border-radius:10px 20px 10px 20px;
+
+}

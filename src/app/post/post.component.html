@@ -1,0 +1,247 @@
+<div style="margin-left: 33%">
+  <form
+    class="container"
+    #form="ngForm"
+    style="margin-top: 10%"
+    (ngSubmit)="post()"
+  >
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="font">Category</div>
+        <select
+          [class.is-invalid]="name.invalid && name.touched"
+          #name="ngModel"
+          class="form-select form-control color"
+          name="category"
+          [(ngModel)]="data.category"
+          required="true"
+          (ngModelChange)="fun()"
+        >
+          <option *ngFor="let category of categories">{{ category }}</option>
+        </select>
+        <small [class.d-none]="name.valid || name.untouched" style="color: red"
+          >*Please choose a category</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="font">Gender</div>
+        <select
+          [class.is-invalid]="name.invalid && name.touched"
+          #name="ngModel"
+          class="form-select form-control color"
+          name="gender"
+          [(ngModel)]="data.gender"
+          required="true"
+          (ngModelChange)="fun()"
+        >
+          <option *ngFor="let gender of genders">{{ gender }}</option>
+        </select>
+        <small [class.d-none]="name.valid || name.untouched" style="color: red"
+          >*Please choose a gender</small
+        >
+      </div>
+    </div>
+
+    <!-- {{name.className}} -->
+    <!-- {{name.untouched}} -->
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="exampleInputWeight" class="form-label font"
+          >Weight(KG)</label
+        >
+        <input
+          #weight="ngModel"
+          [class.is-invalid]="weight.invalid && weight.touched"
+          name="weight"
+          type="number"
+          class="form-control color"
+          id="exampleInputWeight"
+          [(ngModel)]="data.weight"
+          required="true"
+          min="0"
+        />
+        <small
+          [class.d-none]="weight.valid || weight.untouched"
+          style="color: red"
+          >*Please enter weight in KG</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="font">Pregnant</div>
+        <select
+          [disabled]="cat || gend"
+          #pregnant="ngModel"
+          [class.is-invalid]="pregnant.invalid && pregnant.touched"
+          name="pregnant"
+          class="form-select form-control color"
+          aria-label="Default select example"
+          [(ngModel)]="data.pregnant"
+          required="true"
+        >
+          <option value="Yes" selected>Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div *ngIf="cat == false || gend == false">
+          <small
+            [class.d-none]="pregnant.valid || pregnant.untouched"
+            style="color: red"
+            >*Please choose "Yes" or "No"</small
+          >
+        </div>
+
+        <div
+          *ngIf="cat == true || gend == true"
+          style="color: rgb(114, 164, 234)"
+        >
+          This field is disabled for <strong>chickens and male cattles!</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="exampleInputPrice" class="form-label font"
+          >Price(PKR)</label
+        >
+        <input
+          #price="ngModel"
+          [class.is-invalid]="price.invalid && price.touched"
+          name="price"
+          type="number"
+          class="form-control color"
+          id="exampleInputPrice"
+          [(ngModel)]="data.price"
+          required="true"
+          min="0"
+        />
+        <small
+          [class.d-none]="price.valid || price.untouched"
+          style="color: red"
+          >*Please enter price(PKR)</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="exampleInputMilk" class="form-label font"
+          >Milk in Liters</label
+        >
+        <input
+          [disabled]="cat || gend"
+          name="milkInLiters"
+          type="number"
+          class="form-control color"
+          id="exampleInputMilk"
+          aria-describedby="emailHelp"
+          [(ngModel)]="data.milkInLiters"
+          min="0.00"
+          step="0.25"
+        />
+
+        <div
+          *ngIf="cat == true || gend == true"
+          style="color: rgb(114, 164, 234)"
+        >
+          This field is disabled for <strong>chickens & male calltes!</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="exampleInputCity" class="form-label font">City</label>
+        <input
+          #city="ngModel"
+          name="city"
+          type="text"
+          class="form-control color"
+          id="exampleInputCity"
+          [(ngModel)]="data.city"
+          [class.is-invalid]="city.invalid && city.touched"
+          pattern="[a-zA-Z ]*"
+          required="true"
+        />
+        <small [class.d-none]="city.valid || city.untouched" style="color: red"
+          >*Please enter your city name</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="exampleInputName" class="form-label font"
+          >Your Full Name</label
+        >
+        <input
+          #sellerName="ngModel"
+          name="sellerName"
+          type="text"
+          class="form-control color"
+          id="exampleInputName"
+          aria-describedby="emailHelp"
+          [(ngModel)]="data.sellerName"
+          [class.is-invalid]="sellerName.invalid && sellerName.touched"
+          pattern="[a-zA-Z ]*"
+          required="true"
+        />
+        <small
+          [class.d-none]="sellerName.valid || sellerName.untouched"
+          style="color: red"
+          >*Please enter your full name</small
+        >
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <label for="exampleInputNumber" class="form-label font"
+          >Your Phone Number</label
+        >
+        <input
+          #sellerPhone="ngModel"
+          name="sellerPhone"
+          type="tel"
+          class="form-control color"
+          id="exampleInputNumber"
+          [(ngModel)]="data.sellerPhone"
+          [class.is-invalid]="sellerPhone.invalid && sellerPhone.touched"
+          pattern="^\d{11}$"
+          required="true"
+        />
+        <small
+          [class.d-none]="sellerPhone.valid || sellerPhone.untouched"
+          style="color: red"
+          >*Please enter your 11-digit contact number</small
+        >
+      </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+      <input
+        type="file"
+        [(ngModel)]="file"
+        name="file"
+        (change)="selectImage($event)"
+        required="true"
+        accept="image/x-png,image/jpg, image/gif,image/jpeg"
+      />
+      <button [disabled]="form.form.invalid" type="submit" class="btn button">
+        Upload
+      </button>
+    </div>
+  </form>
+  <br /><br />
+</div>
+
+<!-- <button onclick="JSalert()">Show an Alert</button> -->
+
+<!-- [disabled]="form.form.invalid" -->
